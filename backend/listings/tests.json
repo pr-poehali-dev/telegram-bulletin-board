@@ -1,0 +1,37 @@
+{
+  "tests": [
+    {
+      "name": "GET all listings",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {"listings": []},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "GET listings by category",
+      "method": "GET",
+      "path": "/?category=electronics",
+      "expectedStatus": 200,
+      "expectedBody": {"listings": []},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "POST create listing",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "title": "Тестовый товар",
+        "description": "Описание тестового товара",
+        "price": "1 000 ₽",
+        "city": "Москва",
+        "contact": "@test_user",
+        "category": "other",
+        "photo": ""
+      },
+      "expectedStatus": 201,
+      "expectedBody": {"success": true},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
